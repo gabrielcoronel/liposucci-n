@@ -10,27 +10,13 @@ import SignUp from "./SignUp";
 export default () => {
     const [index, setIndex] = useState(0);
 
-    const layout = {
-        width: "40%",
-        paddingBottom: "1.5rem",
-        border: "1px silver solid"
-    };
-
     const tabs = [
-        <SignUp
-            setIsLoading={setIsLoading}
-            setRequestError={setRequestError}
-            setValidationError={setValidationError}
-        />,
-        <LogIn
-            setIsLoading={setIsLoading}
-            setRequestError={setRequestError}
-            setValidationError={setValidationError}
-        />
+        <SignUp />,
+        <LogIn />
     ];
 
     return (
-        <Box sx={layout}>
+        <Box>
             <Tabs
                 value={index}
                 onChange={(_, newIndex) => setIndex(newIndex)}

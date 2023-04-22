@@ -5,7 +5,7 @@ import axios from "axios";
 import { useMutation } from "react-query";
 import encodeFile from "../../utilities/encode-file";
 
-const signUp = (account) => {
+const registrar = (account) => {
     const url = "http://localhost:8080/authentication/signUp";
 
     return axios.post(url, account);
@@ -19,7 +19,7 @@ export default () => {
             picture: ""
         },
     });
-    const mutation = useMutation(signUp);
+    const mutation = useMutation(registrar);
 
     const handleSubmit = async (values) => {
         mutation.mutate(values);
@@ -29,13 +29,13 @@ export default () => {
     const handlePictureChange = async (event) => {
         const file = event.target.files[0];
 
-        const string = await encodeFile(file);
+        const imagen = await encodeFile(file);
 
-        form.setFormField("picture", string);
+        form.setFormField("picture", imagen);
     };
 
     return (
-        <Box sx={formLayout}>
+        <Box>
             <TextField
                 label="Nombre de usuario"
                 type="text"
